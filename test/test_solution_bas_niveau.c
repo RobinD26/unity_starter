@@ -9,18 +9,22 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void test_function_should_doBlahAndBlah(void) {
-    //test stuff
+void test_strcpy_should_return_same_string(void) {
+    char str[10]={};
+    TEST_ASSERT_EQUAL_STRING("hello",strcpy(str,"hello"));
+    TEST_ASSERT_EQUAL_STRING("hello",str);
 }
 
-void test_function_should_doAlsoDoBlah(void) {
-    //more test stuff
+void test_strcpy_should_copy_string_in_buffer(void) {
+    char str[10]={};
+    strcpy(str,"allo");
+    TEST_ASSERT_EQUAL_STRING("allo",str);
 }
 
 // not needed when using generate_test_runner.rb
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(test_function_should_doBlahAndBlah);
-    RUN_TEST(test_function_should_doAlsoDoBlah);
+    RUN_TEST(test_strcpy_should_return_same_string);
+    RUN_TEST(test_strcpy_should_copy_string_in_buffer);
     return UNITY_END();
 }
